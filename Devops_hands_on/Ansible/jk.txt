@@ -1,0 +1,22 @@
+amazon-linux-extras install epel -y
+amazon-linux-extras install ansible2 -y
+[testnodes]
+jenkins_build_server  ansible_ssh_host=172.31.92.84 ansible_ssh_user=devopsadmin
+jenkins_QA_server  ansible_ssh_host=172.31.80.183 ansible_ssh_user=devopsadmin
+ssh-copy-id devopsadmin@172.31.92.84
+ssh-copy-id devopsadmin@172.31.80.183
+
+ansible testnodes -m ping 
+ssh ansibleadmin@172.31.6.133
+ssh ansibleadmin@172.31.2.73
+5yiN%4KCBVxsF*4x3
+ansible jenkins_build_server  ansible_ssh_host=172.31.92.84 ansible_ssh_user=ansibleadmin -m ping
+
+ansible app --list-hosts -i ansible_hosts
+ chown -R devopsadmin1 
+/home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+172.31.92.84 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBNwjDRGiF4ekSCYEdOEnneMYF76Cxz1d+gCLyvB+xjw/oLLD3qyYShbrDsgSU4/31D7uWJlmrb1ER96XNK+wXC0=
+172.31.80.183 ecdsa-sha2-nistp256 AAAAE2VjZHNhLXNoYTItbmlzdHAyNTYAAAAIbmlzdHAyNTYAAABBBAdwJMbRfJ2JZvLZqon6cf9KQtusyWCoXVkrEVlDhAXVPdXdTR++nA1kRTl9IjK1thBp9W5yTpY0OEt2Zs8v8+M=

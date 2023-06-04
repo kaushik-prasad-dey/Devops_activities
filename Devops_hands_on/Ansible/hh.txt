@@ -1,0 +1,43 @@
+1) Create a VPC - "3tier-architecture" with CIDR 10.20.0.0/16.
+2) Create 3 subnets - 1 Public -web and 2 private -app and db.
+3) Launch "web1" and "web2" instances in Subnet "web".
+4) Launch "app1" and "app2" instances in subnet "app".
+5) Launch "db1" in subnet "db".
+6) "web1" and "web2" are basic httpd web servers and should be connectable from
+   internet on ports 22(SSH) and 80(HTTP). test it.
+7) "app1" and "app2" should only be connectable fro "web1" and "web2"
+using Private IP address over port 22 (SSH).
+8) "db1" should be connectable only from "app1" and "app2" using Private IP address over
+  port(SSH).
+
+vpc-010b1530bd8d72a20
+AccessfromWeb
+chmod 400 key.pem
+ssh -i "key.pem" ec2-user@10.20.1.187
+ssh -i "key.pem" ec2-user@10.20.2.235
+
+ssh-copy-id ansibleadmin@ 172.31.93.37
+ssh-copy-id ansibleadmin@172.31.82.1
+ssh ansibleadmin@172.31.93.37
+ssh ansibleadmin@172.31.82.1
+
+[testnodes]
+echo "samplenode1 ansible_ssh_host=172.31.93.37 ansible_ssh_user=ansibleadmin" >>inventory1
+samplenode2 ansible_ssh_host=172.31.82.1 ansible_ssh_user=ansibleadmin
+
+ansible <hosts_name> -m <module_name> -i <inventory_file>
+ansible testnodes -m ping
+
+Remote server Authentication!!!!
+Jenkins_master and slave ==> are owned by Devops Team.
+Ansible Controller :: owned by the Devops Team/Infra Team
+Target Machines :: dev,test,hosted servers, mail server
+
+ansible samplenode1 -m ping -i inventory1
+
+
+ansible samplenode1 -m copy -a "src=/etc/ansible/file1.txt dest=/home/ansibleadmin"
+[ansibleadmin@ip-172-31-93-37 ~]$ ls
+"/home/ansibleadmin/kaushik1.txt"
+
+ansible samplenode1 -m fetch -a "src=/home/ansibleadmin/kaushik1.txt dest=/home/devopsadmin"

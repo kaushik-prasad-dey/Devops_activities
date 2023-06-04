@@ -1,0 +1,55 @@
+sysconnector [source data ]
+testDB se destination
+This is the database prepare for your tesing
+tenant3-qa-efos
+this is present on 10.5.28.190
+database server
+Configuration-Manager and Sisconnector database is present on PA-LMLMSDDB01 database
+in configuration-manager under schoolconfiguration table you can find a row with id  63. 
+The above tenant3-qa-efos database is point here to school1.edio.com site
+select SchoolNumber,* from schoolconfigurations where id = 63
+you can use this record for your testing purpose
+
+=====================================================
+sisconnector =>Data_source
+school table
+configuratin_manager=>middleware (school configuration)
+tenant3-qa-efos => destination (school_id)
+====================================================
+---------------------------------------------------------------------------------------------------------------------------------------
+select SchoolNumber, EdioInstanceUrl,dbo.DecryptString(ConnectionString), * from schoolconfigurations
+[sisconnector] [Configuration-Manager]--[PA-LMLMSDDB01]
+[tenant3-qa-efos]
+select * from schools
+connectionString="Data Source=PA-LMLMSDDB01;Initial Catalog=CCALMS_08_16_2022_RMS;user id=learningmate_data;Password=0Hu#1f0f68E3*esQ;"
+02M800
+---------------------------------------------------------------------------------------------------------------------------------------
+ConfigurationManager: "Data Source=PA-LMLMSDDB01; Database=Configuration-Manager; user id=learningmate_data;Password=0Hu#1f0f68E3*esQ;",
+SisConnector: Data Source=10.5.28.190; Database=efos-new-school-03; user id=ccalms_user; password=UCvfD9AJPC~cVgy*Hmw6X;
+10.5.28.129
+
+Multiple destination : Data Source=10.5.28.190; Database=efos-new-school-03; user id=ccalms_user; password=UCvfD9AJPC~cVgy*Hmw6X;
+Data Source=10.5.28.190; Database=tenant1-qa-efos; user id=ccalms_user; password=UCvfD9AJPC~cVgy*Hmw6X;
+
+Data Source=10.5.28.190;User ID=ccalms_user;Password=UCvfD9AJPC~cVgy*Hmw6X;Initial Catalog=efos-new-school-03;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;
+
+select distinct SchoolNumber from [dbo].[SchoolConfigurations] where  connectionString is not null and SchoolNumber is not null
+Severity	Code	Description	Project	File	Line	Suppression State
+
+Error		Error saving schools_package.dtsx: 
+The file name is not valid.The file name is a device or contains invalid characters.		
+D:\ETL_process\new_etl_process\EFOSETLModfications_23March\EFOSETLModfications_23March\TestedPackages_Varsha_MultipleDestination\Integration Services Project1\schools_package.dtsx 1
+
+select SchoolId,[dbo].DecryptString(ConnectionString) as ConnectionString from [dbo].[SchoolConfigurations]
+where  connectionString is not null and SchoolId is not null
+
+Data Source=10.5.28.190;User ID=ccalms_user;Initial Catalog=tenant3-qa-efos;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;
+Data Source=10.5.28.190;Database=tenant3-qa-efos;user id=ccalms_user;password=UCvfD9AJPC~cVgy*Hmw6X;
+Data Source=10.5.28.190;User ID=ccalms_user;Initial Catalog=tenant3-qa-efos;Provider=SQLNCLI11.1;Persist Security Info=True;Auto Translate=False;
+
+steps to deploy in SSIS package:
+1) Build the project as root level.
+2) showing build succeded message.
+https://meet.google.com/gtp-xepy-bvj?authuser=0
+3)hi working in ETL work, so what is the next step ??
+

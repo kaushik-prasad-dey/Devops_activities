@@ -1,0 +1,150 @@
+docker run -it --mount source=kaushikvol1,destination=/kaushikvol1 centos bash
+docker run -it -p 8085:8080 tomcat:8.0
+apt-get update && apt-get install -y git
+git --version
+git version 2.30.2
+docker commit 83f56f24030b iimdatascience1/dcpdebian-git:v1.0
+docker run -it iimdatascience1/dcpdebian-git:v1.0
+docker push iimdatascience1/dcpdebian-git:tagname
+vi Dockerfile
+===========CREATING DOCKER FILE==========================
+FROM debian
+RUN apt-get update
+RUN apt-get install -y git
+RUN apt-get install -y vim
+==========================================================
+cat Dockerfile
+docker build -t iimdatascience1/dcp-deb-git-vim .
+Successfully built 2c2aeb328b36
+Successfully tagged iimdatascience1/dcp-deb-git-vim:latest
+=========================================================
+access_token : dckr_pat_XR7_NEn8wxykHbQMEe4LWYOph_Y
+docker login -u iimdatascience1
+docker push iimdatascience1/dcpdebian-git:v1.0 
+we can use any shared services or ngRx ( state management), so data privacy should be
+considered and as well as data security.
+
+npm cache clean --force
+npm install node-sass@4.14.1 --save-dev
+npm install node-sass@latest
+npm install
+"node-sass": "^3.8.0",
+"node-sass": "^3.8.0",
+D:/real_world_projects/react/nn/routledge-music-theory-trainer-master/routledge-music-theory-trainer-master
+http://13.233.109.209/
+https://www.freenom.com/en/index.html?lang=en
+
+Instead of importing multiple component in app modules( currently it is 27 components)
+best recomender is that we can use modules, so in angular when we inject modules, its faster
+loading that component. so we should replace components with modules.
+D:/real_world_projects/react/final_run
+App.jsx
+3c.jsx
+2c.jsx
+3b.jsx
+BaseRhythmExcercise.jsx
+index.jsx
+RhythmNote.jsx
+RhythmRest.jsx
+Measurbar.jsx
+Cannot resolve 'file' or 'directory'
+SmartRythmNote.jsx
+webpack-dev-server --progress --display-error-details --hot --inline
+extensions: ['', '.js', '.jsx', '.json', '.scss', '.sass'],
+Hi Vembu,
+I had added webpack.config.js in my project folder and when ran the application it shows cannot resolve 'file' or 'directory'  (webpack_error.png) in many files . Is there any other files associated with this application, kindly share with us.
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/NewPlaybackService in D:\real_world_projects\react\final_run\app\App\containers
+ @ ./app/App/containers/App.jsx 23:26-69
+D:\real_world_projects\react\routledge-music-theory-trainer-master-20230504T140800Z-001\routledge-music-theory-trainer-master\app
+npm install --save-dev file-loader
+D:/real_world_projects/react/final_run/app
+
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/NewPlaybackService in D:\real_world_projects\react\nn\routledge-music-theory-trainer-master\routledge-music-theory-trainer-master\app\App\containers
+
+ASK QUESTION
+public ACL & json policy ??
+server side encryption & client side encryption ?
+server access logging ??
+s3 access point ?? 
+access point policy ??
+Data transfer in from anywhere is free ?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ERROR in ./app/App/containers/App.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/NewPlaybackService in D:\real_world_projects\react\final_run\app\App\containers
+ @ ./app/App/containers/App.jsx 23:26-69
+
+ERROR in ./app/Exercises/containers/3c.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/NewPlaybackService in D:\real_world_projects\react\final_run\app\Exercises\containers
+ @ ./app/Exercises/containers/3c.jsx 45:26-69
+
+ERROR in ./app/Exercises/containers/2c.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/timing in D:\real_world_projects\react\final_run\app\Exercises\containers
+ @ ./app/Exercises/containers/2c.jsx 53:14-45
+
+ERROR in ./app/Exercises/containers/3b.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/timing in D:\real_world_projects\react\final_run\app\Exercises\containers
+ @ ./app/Exercises/containers/3b.jsx 31:14-45
+
+ERROR in ./app/Exercises/containers/BaseRhythmExercise.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../Helpers/timing in D:\real_world_projects\react\final_run\app\Exercises\containers
+ @ ./app/Exercises/containers/BaseRhythmExercise.jsx 56:14-45
+
+ERROR in ./app/Helpers/Rhythm/index.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./RhythmNotes in D:\real_world_projects\react\final_run\app\Helpers\Rhythm
+ @ ./app/Helpers/Rhythm/index.jsx 32:19-43
+
+ERROR in ./app/Elements/components/RhythmLine/index.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../../Helpers/svg in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/index.jsx 26:11-42
+
+ERROR in ./app/Elements/components/RhythmLine/index.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./utils in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/index.jsx 40:13-31
+
+ERROR in ./app/Elements/components/RhythmLine/SmartRhythmNote.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./utils in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/SmartRhythmNote.jsx 21:13-31
+
+ERROR in ./app/Elements/components/RhythmLine/MeasureBar.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./utils in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/MeasureBar.jsx 14:13-31
+
+ERROR in ./app/Elements/components/RhythmLine/MeasureBar.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../../Helpers/svg in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/MeasureBar.jsx 16:11-42
+
+ERROR in ./app/Elements/components/RhythmLine/RhythmNote.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ../../../Helpers/svg in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/RhythmNote.jsx 18:11-42
+
+ERROR in ./app/Elements/components/RhythmLine/RhythmNote.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./utils in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/RhythmNote.jsx 20:13-31
+
+ERROR in ./app/Elements/components/RhythmLine/RhythmRest.jsx
+Module not found: Error: Cannot resolve 'file' or 'directory' ./utils in D:\real_world_projects\react\final_run\app\Elements\components\RhythmLine
+ @ ./app/Elements/components/RhythmLine/RhythmRest.jsx 18:13-31

@@ -1,0 +1,231 @@
+1) configuare management tool
+2) IAC -->Infrastructure As Code.
+3) Tools -->Terrafrom --> Used to provision servers.
+4)
+IAC --> Infrastructure As code --> Tools-->Terraform-->used for provision the server.
+IAC --> Infrastructure As code --> Tools-->Ansible-->used for config the server.
+5) Ansible use the Push approach instead. Ansible clients do not have any agents instad on them,
+therefore there is no concept of polling with central server. Ansible uses the Push approach instead.
+Still, Ansible is flexiable enough to let the user implement Pull architecture as well.
+6) Ansible maintain the inventory file. 
+7) Scripts are called nothing but a module.
+8) Ansible Playbook ->Ansible manifest file.
+9) First crating the playbook. identifying the inventory file.
+10) https://dev.to/appwrk/deploy-reactjs-and-nodejs-app-on-server-with-jenkins-ol
+11) 'https://github.com/LoksaiETA/Java-mvn-app2.git'
+sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+
+
+
+
+pipeline {
+    agent any
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+                git 'https://github.com/LoksaiETA/Java-mvn-app2.git' 
+            }
+        }
+	    stage('Build') {
+            steps {
+                echo 'Hello World'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Deploy to QA') {
+            steps {
+                echo 'Deploy'
+            }
+        }
+        stage('Automated QA test') {
+            steps {
+                echo 'Automated'
+            }
+        }
+    }
+}
+How to Config. QA Server
+	Install Tomcat run in port 8080
+		pre-req. is jdk
+	create user for tomcat server
+	create ssh keys
+
+Jenkins_Master
+      Jenkins_Slave
+QA_Server
+
+#for update and install java
+sudo apt update -y
+sudo apt install openjdk-11-jre -y
+java -version
+
+#Install tomcat in Amazon Linux Instance:
+go to the official website for tomcat installation
+https://tomcat.apache.org/download-10.cgi
+cd /opt
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+tar -xvzf /opt/apache-tomcat-10.1.8.tar.gz
+mv apache-tomcat-10.1.8 tomcat
+ls
+cd tomcat/
+ls
+cd bin
+./startup.sh
+
+
+
+
+
+
+pipeline {
+    agent {
+        label 'slave_m1'
+    }
+    tools {
+        maven "maven"
+    }
+    stages {
+        stage('SCM Checkout') {
+            steps {
+                echo 'Perform SCM Checkout'
+                git 'https://github.com/LoksaiETA/Java-mvn-app2.git' 
+            }
+        }
+	    stage('Build') {
+            steps {
+                echo 'Perform Maven build'
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+        }
+        stage('Deploy to QA') {
+            steps {
+                echo 'Deploy'
+            }
+        }
+        stage('Automated QA test') {
+            steps {
+                echo 'Automated'
+            }
+        }
+        stage('Deploy to UAT') {
+            steps {
+                echo 'Automated'
+            }
+        }
+        stage('Deploy to PROD') {
+            steps {
+                echo 'Automated'
+            }
+        }
+    }
+}
+wget https://dlcdn.apache.org/tomcat/tomcat-10/v10.1.8/bin/apache-tomcat-10.1.8.tar.gz
+tar -xvzf /opt/apache-tomcat-10.1.8.tar.gz
+mv apache-tomcat-10.1.8 tomcat1
+./startup.sh
+
+useradd -m -s /bin/bash devopsadmin1
+su - devopsadmin1
+ssh-keygen -t rsa -b 4096 -m PEM
+ls ~/.ssh
+#cat id_rsa & copy the private key & paste it into jenkins node config.
+cat id_rsa.pub > 
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+
+-----BEGIN RSA PRIVATE KEY-----
+MIIJJwIBAAKCAgEAu8gbOUFGo7W6NWReazvcoCg8zCmqzoJmzr0zdXc/IV2oDLqr
+fLTY8NHeAKKLNy9EC5pls+XDWUrV4PL5M93X3cxDhoIQ3reZ0NXqvk3wfrbO3xFN
+kqErHHkl+snqOa/WnihQVroYkibEy08kaoXFGrxJpXd4f5Jbiaw77HAq2dUlt+Eg
+fHUN94TxTZ76NIAYZkXPZKVgNNIQTEq4AsTyNFch1mWitZR+cB3tytj2Z0DwrIYe
+qGXU3SOOv8uVrXQ5Up0eCb7wanK7FvomvKCjmvlvw776Boh1JPH8RSUI2IETRV1M
+Bb7K+h8tYHGuEvIt8YZ4t1TZyjHp2u4GBF6ywfilTckX3fvXo7hBaZz2HgCu/jZr
+JI8dWKxqOYj9f56WFqjuQGAKc57dD0KPFIC9WGSGBbCtCUgdoGR499u5U0+P2lIJ
+NgmeAAYjnUZUAfVnRKn7VadDeZhIHsm05kGhlm37t1kMJt61GE5vI5aXd6zDPnz+
+pSBJNaKhmiXRYJhKjRiqVccI7inejzWQ75MJqxqOWi3q52dvNpZlrNemKp+3+VWd
+YQHyZIOV1exrRgxJZiIdlYXmxkICvLIWEPQgLG5s5H1ustDEeHTsXOhUwZr8ldRi
+OL+ah3g9M5wbl+koO5oghLBZKun9fed9RukIx++rDUwpYjY3dYZszJZORycCAwEA
+AQKCAgAW+9ulKuGwCP61KUdLPcT3z2T9oj33T8uwk0TYpFNUTKfUgwaZWXNSKoXP
+MxXyF7Vu7CN1nPJHnBrIkUTCPe19htJfBM12zSclAgHc8CI3CD4S3IXPpC1oK0Xk
+R9GE5QpSSmHm85ktTlR5BANTjHL/HjuvZouXpbzRgYTGIEaGagnXU1VMFnGysZFt
+bD94rJMP9Yx4Z6t6W5nGFMEoCZ4RnPaVzNPZAMdnBqrD0MF8Ct1KaJIZD3m55W/D
+9vGnjNm1TGjQTZAUn11Z5x1Vqh3MSqqM3XOx2ALqljnH5swJ3+aRb2VuMJecfLNr
+og5p4D2SWeCto9OSZYCXnNmcsFCVqk230b2tt/MEX/fY4scBJHq+9sUG+ZWtaU9G
+UKlSJIZummv4I3JiVn5lBMylptvYpHvB3F762HdVWl8heg1/ggiCwY2IxRTp6VOJ
+atjv3e+7SdMjKWRD9pHoz4SiTW7QnqrATPJ7eGGFWB1axNPu+Hrssrq6mKH5GbvG
+3INwQwlEfXT+Vw0qh2yk8hYzlkg5piqGVA/PvtwEiXWXZ/+XAAyy1O55IFKEbHwU
+Q+J++OKX+TOmtK3uc0bI5ox/Z9Ux0aoL1KrUGagffl3RSfSYGtCW6F5ZgykuCeRj
+WsZ4cIfjcvmMocIxUDyWzBno7CciLM+jiYyGEIQhhJdY4NRHXQKCAQEA9QlKRcQn
+dOcL9k0heEK7roWlHQwLKOOdFFzL/Ct67UjtfotBeLtOR5obx/hvwSFJYnUtXeft
+s8EkVQvhJ3SgXSl8ePXM+DeyUeCVjo/Zgxxr7O5s4Rq3ahoa2XFAunvKSd/pfQ4p
+eyqnM1AmbSJeJvD3NWVBY/1bFidDFsNscSdFESr5AfEvY8gWeOIG0CDR+bjy0C1J
+4aKqUy2IISvhvlHUld+On/Vdv043OzQI2A8dT0qH5CPQ+yR1dUVAP2U00gIb3RGz
++XvOKScrsXfvRIR8c/EZq4CFZZnJPal0dV8UEA+BZAg4OK7dgvrw1sYwikVsIBgV
+Xrg66Xn3GzIemwKCAQEAxC8BuiPHdBpXnEnRDSrfneGvutNrNTdjIMyK1VtqVA/F
+ChI8HiMYWw1Jcxlp5gCi41n/VZl1RrVOxHXKR5nod05bnKclpTyHLIxYZpTCLmxx
+9PduciW3IJqz/uYQV7w9SyTSKVPHI5W/i/q43BMtZGDt6jhwkcjKXJQbl+Sl3jqT
+8jH+KKIPFULuqzCF+KzR1t3ouk2uq8zrEIT7MISPpVR/rzdVWW5IPRtg+KW/JYdx
+DtXNAs7wEXPKcTjbayozDkaDaeFuVXMbOY2j/DEnL0WzD6B4T3S3ykZxBJCkQhGh
+3vVW/9LJ7KeeR7tZqOCm8KkiDUCgFrqSh5otWeHcZQKCAQAisIQBSHnFhQgegGDi
+o5/qXyU27YOO8FpGjbSbKJSojxCAP7qvGuVEIb8ZGkTH9Kxs8eXQS4tNTWSVXa8s
+ZMhnJ/5lKXcxFMF78e16V0cV1qo4yrBDVgLtVHDEo9HkFK5YswhdGeopc6pkC07F
+WH43yRlWR9VwEGgaxMgsqtHpWwPeIFVMPxbUa3ky99y7DkprrhFCA4dYGC1AxUtm
+Vs4IoZEU/qc0Ygo5kRskmINAAzPFC+odFCz7wPeX+IvV7cACkyXasCzofux6yv7W
+iwImkxMDXvihXPqFnbXtstW34BP5ChjpTniXHbpiVqBN55TrnlRmXsJ3vGEquIeR
+JBFNAoIBAFq9x1W6gOHR4V4XwosNnprfLbIDYh4ePUqJcVnYS6kQFjpfTtE9uGE9
+FxEW2yWYe78e/HwyW81VxVYXiXVu2dh9NOCTa1UvVvKjA6yG9/4TCO6el8ZSbY62
+H7Ux4rNCDTO5lz+oUX7DH/L2CBU7BY7dSo5AhsjXj8occ1rhVlsgyxeGSiGvO7zA
+1bX23rCz9uckgyXREo7CXKOqbqj1V5/IIrr/pAmWefFRvZukxnHsYL3U5Ft9LgtU
+fHm8K7k4rp7WvKf3rln1wMzxF71pWs+BtJ3wwlU2DmCQDmxnHqK0lyOSZSg07lL5
+ALv7CzCSoITGJkrs7l808tun03w0fQUCggEAP9w9Kr0LZnORcXv4onPfzmVPmAYe
+05IUxiXZ+oov7Zse2nmbNeBE/T6fOykrSNyTfvbX8bch9g825mu487E5Ntm0gbXY
+xMxTHsY7x9oBEITiGNxyYBuc8TWDf4ouCVbK+8g6D3PRFriv1OrVGoyEBfckRf/z
+cCOVHZFcgnunOscUP1P+CgfgCYDtA8nhoddPbj5KambCF1rctBolAkaF9SbNXWJI
+xbZqr0qakuJvKY1wiuDLtn28OrIR+p6yrF8P4uu05oJSo6iwUsf9l4fJ43kKCNSk
+VMxkIDKXAhHZ/bPhoxFQDemBFAfz4XTpx1xHdF12SM/Km59ZN8yKR/OI1Q==
+-----END RSA PRIVATE KEY-----
+
+
+
+
+
+
+
+sudo apt update
+sudo apt install openjdk-11-jre
+java -version
+
+sudo apt install maven -y
+
+Adding a New User for Slave :
+
+useradd -m -s /bin/bash devopsadmin
+
+su - devopsadmin
+
+ssh-keygen
+
+ls ~/.ssh 
+
+#You should see following two files:
+
+#id_rsa - private key
+#id_rsa.pub - public
+
+#cat id_rsa & copy the private key and paste it into jenkins node config. enter private key directly field.  Then,
+cat id_rsa.pub > authorized_keys
+
+chown -R devopsadmin /home/devopsadmin/.ssh
+chmod 600 /home/devopsadmin/.ssh/authorized_keys
+chmod 700 /home/devopsadmin/.ssh
+
+Deployment : copy the artifacts from build server to any target QA_servers
+   *war. in slave Machine
+Slave: target/*.war ==> tomcatdir.
+chown -R devopsadmin /opt/tomcat1
+Publish Over SSH is used for Config. Target server in Jenkins

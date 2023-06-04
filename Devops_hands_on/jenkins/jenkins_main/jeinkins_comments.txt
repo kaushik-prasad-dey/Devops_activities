@@ -1,0 +1,58 @@
+1) jenkins is a client server architecuture.
+2) jenkins master 
+   slave1
+   slave2
+   slave3
+   slave4
+
+3) setup the jenkins server.
+4) Install Jenkins --Runs as a service --> by default it runs in port 8080.
+5) we can customize the code.
+6) Launch an AWS instance.
+7) jenkins can be installed in a any platform.
+8) jenkins recomended in linux machine.
+9) never recomends jenkins install in windows machine.
+10)jenkins in a linux machine.
+11)enable port 8080. 
+12)Login to that instance using putty, gitbash or mobaxtram.
+13)First you have to install all pre-requiste.
+14)Install all prerequiste ( Java also required install over there.
+15)Jenkins in install via java programming language.
+16)All slave machine JDK in manadatory.
+17)Read the official documentation.
+18)Java is mandate .
+19) apt-get update 
+20) sudo apt install openjdk-11-jre
+21) curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee \
+  /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+22) cd /var/lib/jenkins/secrets/
+
+
+   11  apt-get update
+   12  apt-get install jenkins
+   13  clear
+   14  cd /var/lib/jenkins/secrets/initialAdminPassword
+   15  cd /var/lib/jenkins/secrets/
+   16  cd /var/lib/jenkins/secrets/
+   17  ls
+   18  cd
+   19  jenkins --version
+   20  cd /var/lib/jenkins
+   21  pwd
+   22  ls -ltr
+   23  clear
+   24  ls -ltr
+   25  cd secrets
+   26  ls
+   27  ls -ltr
+   28  cat initialAdminPassword
+   29  cd ..
+   30  ls
+   31  cd plugins
+   32  ls
+   33  clear
+   34  history
+3)	sudo apt install openjdk-11-jre -y
+
+
+echo "jenkins-${JOB_NAE}-${BUILD_NUMBR}" 

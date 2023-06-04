@@ -1,0 +1,66 @@
+[OLE DB Destination [2]] Error: SSIS Error Code DTS_E_OLEDBERROR.  An OLE DB error has occurred. Error code: 0x80040E2F.
+An OLE DB record is available.  Source: "Microsoft SQL Server Native Client 11.0"  Hresult: 0x80040E2F  Description: "The statement has been terminated.".
+An OLE DB record is available.  Source: "Microsoft SQL Server Native Client 11.0"  Hresult: 0x80040E2F  Description: "Cannot insert the value NULL into column 'Abbreviation', table 'tenant3-qa-efos.dbo.Schools'; column does not allow nulls. INSERT fails.".
+[SSIS.Pipeline] Error: SSIS Error Code DTS_E_PROCESSINPUTFAILED.  The ProcessInput method on component "OLE DB Destination" (2) failed with error code 0xC0209029 while processing input "OLE DB Destination Input" (15). The identified component returned an error from the ProcessInput method. The error is specific to the component, but the error is fatal and will cause the Data Flow task to stop running.  There may be error messages posted before this with more information about the failure.
+Id
+1
+2
+3
+4
+5
+7
+
+C:\Users\kaushik.dey\source\repos\Integration Services Project1
+
+[OLE DB Destination [2]] Error: SSIS Error Code DTS_E_OLEDBERROR.  An OLE DB error has occurred. Error code: 0x80040E21.
+An OLE DB record is available.  Source: "Microsoft SQL Server Native Client 11.0"  Hresult: 0x80040E21  Description: "Multiple-step OLE DB operation generated errors. Check each OLE DB status value, if available. No work was done.".
+
+D:\ETL_process\updated_etl_hari\EFOSETLModfications_29March2023\EFOSETLModfications_23March\TestedPackages_Varsha_MultipleDestination\Integration Services Project1
+
+
+TITLE: Package Validation Error
+------------------------------
+
+Package Validation Error
+
+------------------------------
+ADDITIONAL INFORMATION:
+
+Error at Data Flow Task [Flat File Destination [119]]: The data type for "Flat File Destination.Inputs[Flat File Destination Input].Columns[HighGrade]" is DT_NTEXT, which is not supported with ANSI files. 
+Use DT_TEXT instead and convert the data to DT_NTEXT using the data conversion component.
+
+Error at Data Flow Task [SSIS.Pipeline]: "Flat File Destination" failed validation and returned validation status "VS_ISBROKEN".
+
+Error at Data Flow Task [SSIS.Pipeline]: One or more component failed validation.
+
+Error at Data Flow Task: There were errors during task validation.
+
+ (Microsoft.DataTransformationServices.VsIntegration)
+
+------------------------------
+BUTTONS:
+
+OK
+------------------------------
+
+
+[SSIS.Pipeline] Error: SSIS Error Code DTS_E_PROCESSINPUTFAILED.  The ProcessInput method on component "OLE DB Destination" (113) failed with error code 0xC0209029 while processing input "OLE DB Destination Input" (126). The identified component returned an error from the ProcessInput method. The error is specific to the component, but the error is fatal and will cause the Data Flow task to stop running.  There may be error messages posted before this with more information about the failure.
+[OLE DB Destination [113]] Error: SSIS Error Code DTS_E_INDUCEDTRANSFORMFAILUREONERROR.  The "OLE DB Destination.Inputs[OLE DB Destination Input]" failed because error code 0xC020907B occurred, and the error row disposition on "OLE DB Destination.Inputs[OLE DB Destination Input]" specifies failure on error. An error occurred on the specified object of the specified component.  There may be error messages posted before this with more information about the failure.
+
+
+[SSIS.Pipeline] Warning: The output column "Copy of Id" (65) on output "Data Conversion Output" (25) and component "Data Conversion" (2) is not subsequently
+
+
+
+ used in the Data Flow task. Removing this unused output column can increase Data Flow task performance.
+
+
+
+
+
+
+https://stackoverflow.com/questions/3708348/the-execute-permission-was-denied-on-the-object-xxxxxxx-database-zzzzzzz-s
+
+
+[Execute SQL Task] Error: Executing the query "
+select SchoolId,[dbo].DecryptString(ConnectionStr..." failed with the following error: "The EXECUTE permission was denied on the object 'DecryptString', database 'Configuration-Manager', schema 'dbo'.". Possible failure reasons: Problems with the query, "ResultSet" property not set correctly, parameters not set correctly, or connection not established correctly.
